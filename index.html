@@ -3,277 +3,429 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="assets/callMe.js" defer></script>
     <style>
-        body         { margin: 0; padding: 0; box-sizing: border-box; }
-        .title       { width: 100%; max-width: 400px; margin: 50px auto; text-align: center; }
-        .header-logo {
-            position: fixed; top: -30px; display: block; width: 100%; height: 700px;
-            background-image:  linear-gradient(to top, #8993be, rgba(72, 72, 255, 0.3)), url(media/57b46c16a2caa.jpg); 
-            background-color: #8993be; background-size: 100%; background-repeat: no-repeat; z-index: 1000;
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .header-info { position: absolute; color: #fff; top: 250px; left: 200px; z-index: 1000000; font-family: 'Courier New', Courier, monospace; }
-        .header-info-content h1 { font-size: 35px; }
-        .header-info-content-text { font-size: 20px; }
+
+        .title {
+            width: 100%;
+            max-width: 400px;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        .header-logo {
+            position: fixed;
+            top: -30px;
+            display: block;
+            width: 100%;
+            height: 700px;
+            background-image: linear-gradient(to top, #8993be, rgba(72, 72, 255, 0.3)), url(media/57b46c16a2caa.jpg);
+            background-color: #8993be;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            z-index: 1000;
+        }
+
+        .header-info {
+            position: absolute;
+            color: #fff;
+            top: 250px;
+            left: 200px;
+            z-index: 1000000;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .header-info-content h1 {
+            font-size: 35px;
+        }
+
+        .header-info-content-text {
+            font-size: 20px;
+        }
+
         /*  */
-        .main { position: relative; top: 650px; z-index: 10000; background-color: #8993be; }
-        .main-header { display: block; position: absolute; top: -200px; width: 100%; height: 200px; z-index: 1000; background-image: linear-gradient(to top, rgba(137, 147, 190, 1), rgba(255, 255, 255, 0.0)); }
+        .main {
+            position: relative;
+            top: 650px;
+            z-index: 10000;
+            background-color: #8993be;
+        }
+
+        .main-header {
+            display: block;
+            position: absolute;
+            top: -200px;
+            width: 100%;
+            height: 200px;
+            z-index: 1000;
+            background-image: linear-gradient(to top, rgba(137, 147, 190, 1), rgba(255, 255, 255, 0.0));
+        }
+
         /*  */
         .container {
-            width: 1200px; margin: 0 auto; padding: 30px; margin-top: -430px; font-size: 20px;
-            background-color: #fff; border-radius: 10px 10px 0 0; box-shadow: 15px 15px #333;
+            width: 1200px;
+            margin: 0 auto;
+            padding: 30px;
+            margin-top: -430px;
+            font-size: 20px;
+            background-color: #fff;
+            border-radius: 10px 10px 0 0;
+            box-shadow: 15px 15px #333;
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         }
+
         .kupi-slona-container {
-            display: flex; padding: 30px; color: #fff;
-            align-items: center; flex-direction: column; justify-content: center;
-            text-shadow: 10px 10px 20px white; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            display: flex;
+            padding: 30px;
+            color: #fff;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            text-shadow: 10px 10px 20px white;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         }
-        .curse-logo img { display: block; width: 80%; border-radius: 12px; margin: 0 auto; }
+
+        .curse-logo img {
+            display: block;
+            width: 80%;
+            border-radius: 12px;
+            margin: 0 auto;
+        }
+
         /*  */
-        .card { padding: 30px; max-width: 500px; background-color: #8993be; border-radius: 10px 10px 0 0; box-shadow: 15px 15px #333; }
-        .card-title     { font-weight: 900; color: #fff; }
-		
-        .Inner-To-PHP   { position: relative; left: 125px; }
-        .Basic-PHP      { position: relative; top: 40px; left: 320px; }
-        .Pract-PHP      { position: relative; top: 80px; left: 170px; }
-        .Profi-PHP      { position: relative; top: 120px; left: 320px; }
+        .card {
+            padding: 30px;
+            max-width: 500px;
+            background-color: #8993be;
+            border-radius: 10px 10px 0 0;
+            box-shadow: 15px 15px #333;
+        }
 
-        .mark-facebook { margin-top: 80px; }
-		
-        .callMe {display: flex; flex-direction: column; border: 1px solid #8993be; height: 500px; width: 600px; margin: 80px auto; border-radius: 5px;}
-        .formCallMe { margin-top: 80px;}
-		
-        .form-items { display: flex; margin: 0 auto; width: 100%; max-width: 600px; flex-direction: column;}
-        .form-items-input       { width: 500px; height: 40px; margin: 20px auto;}
-        .form-items-input input { width: 100%; height: 100%; border-radius: 5px; outline: none; border: 1px solid #8993be; padding: 5px;}
-        .form-items-button      { display: flex; justify-content: flex-end;}
-        .form-items-button button { width: 100px; height: 40px; background-color: white; outline: none; border-radius: 5px; border: 1px solid green; padding: 5px; margin: 20px 34px 0 0;}
-		
-		.buy-button { width: 200px; height: 40px; color: green; outline: none; font-size: 14px; background: #fff; margin-top: 15px; border-radius: 6px; border: 2px solid green; text-transform: uppercase; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; }
+        .card-title {
+            font-weight: 900;
+            color: #fff;
+        }
 
+        .Inner-To-PHP {
+            position: relative;
+            left: 125px;
+        }
 
+        .Basic-PHP {
+            position: relative;
+            top: 40px;
+            left: 320px;
+        }
+
+        .Pract-PHP {
+            position: relative;
+            top: 80px;
+            left: 170px;
+        }
+
+        .Profi-PHP {
+            position: relative;
+            top: 120px;
+            left: 320px;
+        }
+
+        .mark-facebook {
+            margin-top: 80px;
+        }
+
+        .callMe {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #8993be;
+            height: 500px;
+            width: 600px;
+            margin: 80px auto;
+            border-radius: 5px;
+        }
+
+        .formCallMe {
+            margin-top: 80px;
+        }
+
+        .form-items {
+            display: flex;
+            margin: 0 auto;
+            width: 100%;
+            max-width: 600px;
+            flex-direction: column;
+        }
+
+        .form-items-input {
+            width: 500px;
+            height: 40px;
+            margin: 20px auto;
+        }
+
+        .form-items-input input {
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+            outline: none;
+            border: 1px solid #8993be;
+            padding: 5px;
+        }
+
+        .form-items-button {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .form-items-button button {
+            width: 100px;
+            height: 40px;
+            background-color: white;
+            outline: none;
+            border-radius: 5px;
+            border: 1px solid green;
+            padding: 5px;
+            margin: 20px 34px 0 0;
+        }
+
+        .buy-button {
+            width: 200px;
+            height: 40px;
+            color: green;
+            outline: none;
+            font-size: 14px;
+            background: #fff;
+            margin-top: 15px;
+            border-radius: 6px;
+            border: 2px solid green;
+            text-transform: uppercase;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
 
 
     </style>
     <title>Продам слона</title>
 </head>
 <body>
-    <header class="header">
-        <div class="header-inner">
-            <div class="header-logo">
-                <div class="header-info">
-                    <div class="header-info-content">
-                        <h1>Курсы по PHP за час от Профессионала!</h1>
-                        <div class="header-info-content-text">
-                            <p>Всего за гроши вы получите пару десятков видеороликов</p>
-                            <p>p.s. Эти же ролики попадут на ютуб под левым аккаунтом, как "сливы"</p>
-                        </div>
+<header class="header">
+    <div class="header-inner">
+        <div class="header-logo">
+            <div class="header-info">
+                <div class="header-info-content">
+                    <h1>Курсы по PHP за час от Профессионала!</h1>
+                    <div class="header-info-content-text">
+                        <p>Всего за гроши вы получите пару десятков видеороликов</p>
+                        <p>p.s. Эти же ролики попадут на ютуб под левым аккаунтом, как "сливы"</p>
                     </div>
                 </div>
             </div>
         </div>
-    </header>
-    <main class="main">
-        <div class="main-header"></div>
-        <section class="kupi-slona">
-            <div class="kupi-slona-container">
-                <h1>Программист, купи слона! Купи слона не пожалеешь!</h1>
-                <img src="media/php_elephant_logo.png" alt="">
+    </div>
+</header>
+<main class="main">
+    <div class="main-header"></div>
+    <section class="kupi-slona">
+        <div class="kupi-slona-container">
+            <h1>Программист, купи слона! Купи слона не пожалеешь!</h1>
+            <img src="media/php_elephant_logo.png" alt="">
+        </div>
+    </section>
+    <div class="container">
+        <section>
+            <div class="title">
+                <h2>Что содержиться в курсе?</h2>
             </div>
-        </section>
-        <div class="container">
-            <section>
+            <div class="curse-logo">
+                <img src="media/images (1).jpg" alt="">
+            </div>
+            <div>
                 <div class="title">
-                    <h2>Что содержиться в курсе?</h2>
+                    <h2>Курс будет содержать в себе 4 блока:</h2>
                 </div>
-                <div class="curse-logo">
-                    <img src="media/images (1).jpg" alt="">
-                </div>
+            </div>
+            <div class="card Inner-To-PHP">
+                <div class="card-title">Введение в PHP</div>
                 <div>
-                    <div class="title">
-                        <h2>Курс будет содержать в себе 4 блока:</h2>
-                    </div>
+                    <p>Здесь мы посмотрим что такое ваш этот PHP, потыкаем википедию, посмотрим для чего он вообще нужен
+                        и нужен ли вообще</p>
+                    <p>(Спойлерить не буду))))</p>
                 </div>
-                <div class="card Inner-To-PHP">
-                    <div class="card-title">Введение в PHP</div>
-                    <div>
-                        <p>Здесь мы посмотрим что такое ваш этот PHP, потыкаем википедию, посмотрим для чего он вообще нужен и нужен ли вообще</p>
-                        <p>(Спойлерить не буду))))</p>
-                    </div>
+            </div>
+
+            <div class="card Basic-PHP">
+                <div class="card-title">Основы PHP</div>
+                <div>
+                    <p>В этом блоке я буду вас пичкать теорией, и показывать как что работает</p>
                 </div>
+            </div>
 
-                <div class="card Basic-PHP">
-                    <div class="card-title">Основы PHP</div>
-                    <div>
-                        <p>В этом блоке я буду вас пичкать теорией, и показывать как что работает</p>
-                    </div>
+            <div class="card Pract-PHP">
+                <div class="card-title">Практический PHP</div>
+                <div>
+                    <p>Здесь, мы уже будет проходить, так называемый "Курс молодого PHPшера", здесь мы будем тыкать PHP
+                        и морально подготавливаться к общению с проституткой в универе</p>
                 </div>
+            </div>
 
-                <div class="card Pract-PHP">
-                    <div class="card-title">Практический PHP</div>
-                    <div>
-                        <p>Здесь, мы уже будет проходить, так называемый "Курс молодого PHPшера", здесь мы будем тыкать PHP и морально подготавливаться к общению с проституткой в универе</p>
-                    </div>
+            <div class="card Profi-PHP">
+                <div class="card-title">PHP Профессионал</div>
+                <div>
+                    <p>Здесь мы создадим полноценный рабочий сайт на PHP и пойдем в Универ</p>
                 </div>
+            </div>
 
-                <div class="card Profi-PHP">
-                    <div class="card-title">PHP Профессионал</div>
-                    <div>
-                        <p>Здесь мы создадим полноценный рабочий сайт на PHP и пойдем в Универ</p>
-                    </div>
-                </div>
-
-            </section>
-            <section style="margin: 240px 0;">
-                <div class="title">
-                    <h2>Что об этом говорят эксперты?</h2>
-                </div>
-                <div class="wrapper" style="width: 80%; margin: 0 auto;">
-                    <!--  -->
-                    <section class="steve-jobs-and-bill-gates">
-                        <div class="text">
-                            <p>На совместном интерьвю Стива Джобса "Apple Comp" и Билла Гейста "Microsoft" задали вопрос про PHP</p>
-                            <p>(Ведущий) - ...Окей, следующий вопрос, сейчас идёт популярность на такой язык, как PHP, что вы скажете на этот счёт?</p>
-                            <p>(Стив Джобс) - О, PHP, хороший язык! Мы с Возняком, когда были ещё студентами, любили писать код на Бейсике, и когда появился PHP, он занял место в моём сердце, а когда пишешь его на Маке!.. Прекрасный язык</p>
-                            <p>(Ведущий) - Скажите, а хотели бы вы его видеть в своей операционной системе?</p>
-                            <p>(Стив Джобс) - Скажу честно, помню когда он только вышел, я сделал заказ в Майкрософт, чтоб они адаптировали ОС к вебу.</p>
-                            <p>(Билл Гейст) - Да, помню как то Стив, просил меня часть ОС сделать на PHP, но, т.к. PHP несколько ограничен, нам пришлось на его основе создавать новый язык, чтобы связать MacOs с Веб составляющей </p>
-
-                            <div class="logo">
-                                <figure>
-                                    <img src="media/img4289.jpg" alt="">
-                                    <figcaption>Совместное интерьвю Стива Джобса и Билла Гейста</figcaption>
-                                </figure>
-                            </div>
-
-                            <p>(Ведущий) - Скажите, почему вы не использовали эту же технологию в Виндоусе?</p>
-                            <p>(Билл Гейст) - Знаете, мы хоть и любим тырить идеи у Apple, но использовать один и тот же язык (который к тому же и под патентом) как то не получается (а то ещё по судам тоскаться..), поэтому мы используем ДжаваСкрипт</p>
-                            <p>(Стив Джобс) - *Смеётся*</p>
-                            <p>(Ведущий) - Советуете ли вы этот язык каждому программисту?!</p>
-                            <p>(Стив Джобс) - Несомненно</p>
-                            <p>(Билл Гейст) - Со 100% уверенностью, скажу что да</p>
-                            <p>(Ведущий) - Замечательно.</p>
-                        </div>
-                    </section>
-                    <!--  -->
-                    <section class="mark-facebook">
-                        <div class="text">
-                            <p>PHP я полюбил ещё в Универе. После общения с проституткой, тяга к этому языку пошла сама. Я стал больше уделять внимание этому языку, и на нём что-то писать, так и родилась идея написать FaceBook</p>
-                            <div class="logo">
-                                <figure>
-                                    <img src="media/images (2).jpg" alt="">
-                                    <figcaption>Марк Цукерберг (Основатель Facebook)</figcaption>
-                                </figure>
-                            </div>
-                            <p>Мой успех, это 20% упрямство, и 80% PHP, можете представить, через что я прошёл, и что я видел!</p>
-                            <p>Я создал уникальный проект, который работает на PHP, ещё в те времена, PHP был единственный язык, который давал такой развёрнутый функционал</p>
-                            <p>Так же, я скупал конкурентов, которые были написанны ИСКЛЮЧИТЕЛЬНО на PHP. А в случае с Instagram, так нам пришлось полностью его переписывать на PHP, но его изначальные разработчики думают, что он написан на Петухоне</p>
-                        </div>
-                    </section>
+        </section>
+        <section style="margin: 240px 0;">
+            <div class="title">
+                <h2>Что об этом говорят эксперты?</h2>
+            </div>
+            <div class="wrapper" style="width: 80%; margin: 0 auto;">
                 <!--  -->
-                </div>
+                <section class="steve-jobs-and-bill-gates">
+                    <div class="text">
+                        <p>На совместном интерьвю Стива Джобса "Apple Comp" и Билла Гейста "Microsoft" задали вопрос про
+                            PHP</p>
+                        <p>(Ведущий) - ...Окей, следующий вопрос, сейчас идёт популярность на такой язык, как PHP, что
+                            вы скажете на этот счёт?</p>
+                        <p>(Стив Джобс) - О, PHP, хороший язык! Мы с Возняком, когда были ещё студентами, любили писать
+                            код на Бейсике, и когда появился PHP, он занял место в моём сердце, а когда пишешь его на
+                            Маке!.. Прекрасный язык</p>
+                        <p>(Ведущий) - Скажите, а хотели бы вы его видеть в своей операционной системе?</p>
+                        <p>(Стив Джобс) - Скажу честно, помню когда он только вышел, я сделал заказ в Майкрософт, чтоб
+                            они адаптировали ОС к вебу.</p>
+                        <p>(Билл Гейст) - Да, помню как то Стив, просил меня часть ОС сделать на PHP, но, т.к. PHP
+                            несколько ограничен, нам пришлось на его основе создавать новый язык, чтобы связать MacOs с
+                            Веб составляющей </p>
 
+                        <div class="logo">
+                            <figure>
+                                <img src="media/img4289.jpg" alt="">
+                                <figcaption>Совместное интерьвю Стива Джобса и Билла Гейста</figcaption>
+                            </figure>
+                        </div>
 
-                <section class="callMe">
-                    <form action="" class="formCallMe">
-                        <div class="title">
-                            <h3>Ваш звонок, очень важен для Вас!</h3>
-                            <span>Оставьте свою заявку, и мы возможно вам перезвоним</span>
-                        </div>
-                        <div class="form-items">
-                            <div class="form-items-input">
-                                <input id="inputPhone" type="text" name="">
-                            </div>
-                            <div class="form-items-button">
-                                <button id="buttonSubmit">Заказать звонок</button>
-                            </div>
-                        </div>
-                    </form>
-                </section>
-
-                <section>
-                    <div class="specialnoe-predlojenie">
-                        <div class="title">
-                            <h2>Специальное предложение!</h2>
-                            Только сейчас, если успеете взять по скидке, <a href="./media/r_30466_6rep2.jpg" alt="" target="_blank" title="Игрушка Слон PHP смотреть онлайн бесплатно без регистрации и смс человек сидеть мягкий стул прилично здравствуйте">плюшевая игрушка PHP слона</a> в подарок
-                        </div>
+                        <p>(Ведущий) - Скажите, почему вы не использовали эту же технологию в Виндоусе?</p>
+                        <p>(Билл Гейст) - Знаете, мы хоть и любим тырить идеи у Apple, но использовать один и тот же
+                            язык (который к тому же и под патентом) как то не получается (а то ещё по судам
+                            тоскаться..), поэтому мы используем ДжаваСкрипт</p>
+                        <p>(Стив Джобс) - *Смеётся*</p>
+                        <p>(Ведущий) - Советуете ли вы этот язык каждому программисту?!</p>
+                        <p>(Стив Джобс) - Несомненно</p>
+                        <p>(Билл Гейст) - Со 100% уверенностью, скажу что да</p>
+                        <p>(Ведущий) - Замечательно.</p>
                     </div>
                 </section>
-
-                <section style="width: 950px; margin: 0 auto; display: flex; justify-content: center;">
-                    <div style="position: relative; width: 860px;">
-                        <div>
-                            <img src="./media/Kak-pisat-na-PHP-pomogite.jpg" alt="" style="display: block; width: 900px; filter: blur(1.5px);">
+                <!--  -->
+                <section class="mark-facebook">
+                    <div class="text">
+                        <p>PHP я полюбил ещё в Универе. После общения с проституткой, тяга к этому языку пошла сама. Я
+                            стал больше уделять внимание этому языку, и на нём что-то писать, так и родилась идея
+                            написать FaceBook</p>
+                        <div class="logo">
+                            <figure>
+                                <img src="media/images (2).jpg" alt="">
+                                <figcaption>Марк Цукерберг (Основатель Facebook)</figcaption>
+                            </figure>
                         </div>
-                        <div style="position: absolute; background-color: #8993be; bottom: 0px; padding: 20px; width: 100%;">
-                            
-                            <div style="display: flex; justify-content: space-between">
-								<div>
-									<div>
-										<span>Обычная Цена Курса:</span>
-										<span>&nbsp;</span> 
-										<span style="color: red;">
+                        <p>Мой успех, это 20% упрямство, и 80% PHP, можете представить, через что я прошёл, и что я
+                            видел!</p>
+                        <p>Я создал уникальный проект, который работает на PHP, ещё в те времена, PHP был единственный
+                            язык, который давал такой развёрнутый функционал</p>
+                        <p>Так же, я скупал конкурентов, которые были написанны ИСКЛЮЧИТЕЛЬНО на PHP. А в случае с
+                            Instagram, так нам пришлось полностью его переписывать на PHP, но его изначальные
+                            разработчики думают, что он написан на Петухоне</p>
+                    </div>
+                </section>
+                <!--  -->
+            </div>
+
+
+            <section class="callMe"></section>
+
+            <section>
+                <div class="specialnoe-predlojenie">
+                    <div class="title">
+                        <h2>Специальное предложение!</h2>
+                        Только сейчас, если успеете взять по скидке, <a href="./media/r_30466_6rep2.jpg" alt=""
+                                                                        target="_blank"
+                                                                        title="Игрушка Слон PHP смотреть онлайн бесплатно без регистрации и смс человек сидеть мягкий стул прилично здравствуйте">плюшевая
+                        игрушка PHP слона</a> в подарок
+                    </div>
+                </div>
+            </section>
+
+            <section style="width: 950px; margin: 0 auto; display: flex; justify-content: center;">
+                <div style="position: relative; width: 860px;">
+                    <div>
+                        <img src="./media/Kak-pisat-na-PHP-pomogite.jpg" alt=""
+                             style="display: block; width: 900px; filter: blur(1.5px);">
+                    </div>
+                    <div style="position: absolute; background-color: #8993be; bottom: 0px; padding: 20px; width: 100%;">
+
+                        <div style="display: flex; justify-content: space-between">
+                            <div>
+                                <div>
+                                    <span>Обычная Цена Курса:</span>
+                                    <span>&nbsp;</span>
+                                    <span style="color: red;">
 											<stong><s>11 500р</s></stong>
 										</span>
-									</div>
-									<div>
-										<span>Цена сейчас:</span>
-										<span>&nbsp;</span>
-										<span style="color: greenyellow;">
+                                </div>
+                                <div>
+                                    <span>Цена сейчас:</span>
+                                    <span>&nbsp;</span>
+                                    <span style="color: greenyellow;">
 											<span><strong>12 999р</strong></span>
 										</span>
-									</div>
-									<div>
-										<span>Скидка закончится через:</span>
-										<span class="minuts"><span class="minuters"></span><span> Минут</span></span> 
-										<span class="seconds"><span class="secunders"></span><span> Секунд</span> </span>
-									</div>
-								</div>
-								<div>
-									<button class="buy-button">Купить</button>
-								</div>
+                                </div>
+                                <div>
+                                    <span>Скидка закончится через:</span>
+                                    <span class="minuts"><span class="minuters"></span><span> Минут</span></span>
+                                    <span class="seconds"><span class="secunders"></span><span> Секунд</span> </span>
+                                </div>
+                            </div>
+                            <div>
+                                <button class="buy-button">Купить</button>
                             </div>
                         </div>
                     </div>
-                </section>
+                </div>
             </section>
-        </div>
-    </main>
+        </section>
+    </div>
+</main>
 
-    <script>
+<script>
+    let minuts = document.querySelector('.minuters');
+    let seconds = document.querySelector('.secunders');
+    let minutBlock = document.querySelector('.minuts');
 
-        let minuts = document.querySelector ('.minuters');
-        let seconds = document.querySelector ('.secunders');
-        let minutBlock = document.querySelector ('.minuts');
+    let min = 14;
+    let sec = 25;
 
-        let min = 14; 
-        let sec = 25;
+    window.onload = () => {
+        minuts.innerHTML = min;
+        seconds.innerHTML = sec;
+        setInterval(Timer, 1000);
 
-        window.onload = () => {
-            minuts.innerHTML = min;
-            seconds.innerHTML = sec;
-            setInterval(Timer, 1000);
-            function Timer () {
-                seconds.innerHTML = sec--;
-                if (sec == -1) {
-                    minuts.innerHTML = min -= 1;
-                    seconds.innerHTML = sec = 59;
-                }
-                if (min == 0) {
-                    minutBlock.style.display = 'none';
-                    setTimeout (() => {location.reload ()}, 59000);
-                }
+        function Timer() {
+            seconds.innerHTML = sec--;
+            if (sec == -1) {
+                minuts.innerHTML = min -= 1;
+                seconds.innerHTML = sec = 59;
+            }
+            if (min == 0) {
+                minutBlock.style.display = 'none';
+                setTimeout(() => {
+                    location.reload()
+                }, 59000);
             }
         }
+    }
 
-        let inputPhone = document.getElementById ('inputPhone');
-        let buttonSubmit = document.getElementById ('buttonSubmit');
-
-        buttonSubmit.onclick = () => {
-            event.preventDefault ();
-            inputPhone.value == '' ? alert ('Введите номер') : alert ('Ха, лох, слил номер, жди звонков, мамонт!'); inputPhone.value = '';
-        }
-
-    </script>
+</script>
 </body>
 </html>
